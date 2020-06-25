@@ -1,0 +1,48 @@
+# COMMON APPLICATION PROPERTIES
+
+server:
+  # start services on random port by default
+  port: 0
+  # The stop processing uses a timeout which provides a grace period during which existing requests will be allowed to complete but no new requests will be permitted
+  shutdown: graceful
+
+spring:
+  datasource:
+    schema: classpath*:db/hsqldb/schema.sql
+    data: classpath*:db/hsqldb/data.sql
+  sleuth:
+    sampler:
+      probability: 1.0
+  cloud:
+    config:
+      # Allow the microservices to override the remote properties with their own System properties or config file
+      allow-override: true
+      # Override configuration with any local property source
+      override-none: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+
+management.security.enabled: false
+spring.cloud.refresh.refreshable: false
+
+
+# Logging
+logging.level.org.springframework: INFO
+
+# Metrics
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
