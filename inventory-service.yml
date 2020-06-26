@@ -3,6 +3,23 @@ vets:
     ttl: 60
     heap-size: 100
 
+spring.application.name: inventory-service
+server.port: 9000
+
+spring.datasource.url: jdbc:h2:mem:mytestDB
+spring.datasource.username: sa
+spring.datasource.password: 
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.H2Dialect
+
+spring.jpa.show-sql: true
+spring.jpa.properties.hibernate.format_sql: true
+spring.jpa.hibernate.ddl-auto: create-drop
+
+logging.level.org.hibernate.SQL: DEBUG
+logging.level.org.hibernate.type: TRACE
+logging.level.org.springframework.web: DEBUG
+
+
 ---
 spring:
   profiles: default
