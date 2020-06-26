@@ -7,9 +7,6 @@ server:
   shutdown: graceful
 
 spring:
-  datasource:
-    schema: classpath*:db/hsqldb/schema.sql
-    data: classpath*:db/hsqldb/data.sql
   sleuth:
     sampler:
       probability: 1.0
@@ -19,11 +16,7 @@ spring:
       allow-override: true
       # Override configuration with any local property source
       override-none: true
-  jpa:
-    open-in-view: false
-    hibernate:
-      ddl-auto: none
-
+  
 management.security.enabled: false
 spring.cloud.refresh.refreshable: false
 
